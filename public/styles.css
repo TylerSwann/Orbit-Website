@@ -1,0 +1,628 @@
+
+@font-face {
+    src: url("fonts/kboutoftowner.ttf");
+    font-family: "Out of Towner";
+}
+
+@font-face {
+    font-family: "Chelsea";
+    src: url("fonts/Chelsea.ttf");
+}
+
+.app-bar
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #f5f5f5;
+    min-height: 48px;
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+    padding: 0 50px;
+    z-index: 5;
+}
+
+.app-bar .ux-tab-bar
+{
+    width: 50%;
+    position: relative;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.app-bar .ux-tab-bar .ux-tab-item
+{
+    /*font-family: "Out of Towner", "Roboto", sans-serif;*/
+    /*font-family: "Chelsea", "Roboto", sans-serif;*/
+    /*font-size: 15px;*/
+    letter-spacing: 1px;
+}
+
+.app-bar .ux-icon-button
+{
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 35px;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+}
+
+.features-container
+{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto auto 100px;
+}
+
+.header-container,
+.feature-box
+{
+    width: 50%;
+}
+
+
+.mobile
+{
+    display: none;
+}
+
+.overview-container
+{
+
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 75px;
+    margin-bottom: 50px;
+}
+
+.overview-container .feature-container
+{
+    display: flex;
+    /*align-items: center;*/
+    width: 100%;
+    height: 50%;
+}
+
+.overview-container .feature-container .text-graphics,
+.overview-container .feature-container .screen-container
+{
+    width: 50%;
+    min-height: 100%;
+}
+.overview-container .feature-container .text-graphics
+{
+    background: url("images/planets_background1.png") no-repeat;
+    background-size: 75%;
+    background-position-x: 40px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+.overview-container .feature-container .text-graphics .feature-labels
+{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-right: 60px;
+}
+
+.overview-container .feature-container .header
+{
+    font-family: "Roboto", system-ui, sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: rgb(50, 50, 50);
+    width: 90%;
+}
+
+.overview-container .feature-container .text-graphics .feature-labels .description
+{
+    font-family: "Roboto", system-ui, sans-serif;
+    font-size: 16px;
+    color: rgb(100, 100, 100);
+}
+
+.overview-container .feature-container .screen-container img
+{
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: -5px 9px 10px -1px rgba(0, 0, 0, 0.34);
+}
+
+.overview-container .feature-container.left
+{
+    margin-top: 75px;
+    flex-direction: row-reverse;
+}
+
+.overview-container .feature-container.left .text-graphics
+{
+    background: url("images/planets_background2.png") no-repeat;
+    background-size: 75%;
+    background-position-y: 50px;
+    background-position-x: 40px;
+    align-items: flex-start;
+    margin-left: 60px;
+}
+.overview-container .feature-container.left .screen-container img
+{
+    box-shadow: 5px 9px 10px -1px rgba(0, 0, 0, 0.34);
+    border-radius: 0 10px 10px 0;
+}
+
+/***********************
+ *    DOWNLOAD MODAL   *
+ ***********************/
+.version
+{
+    font-size: 10px;
+}
+
+.os-name
+{
+    font-weight: 500;
+    font-size: 23px;
+    color: rgb(50, 50, 50);
+}
+
+.os-info
+{
+    font-weight: 300;
+    font-size: 12px;
+    color: rgb(100, 100, 100);
+    margin-top: 5px;
+}
+
+.download-modal
+{
+    width: 430px;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    margin: auto;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    z-index: 5;
+    transition: transform 200ms ease-in, opacity 350ms ease-out;
+    transform-origin: 100% 100% 0;
+}
+
+.download-modal::before
+{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    transform: rotateZ(-45deg) translateY(30%) translateX(-30%);
+    border-radius: 4px;
+    box-shadow: -5px 5px 7px rgba(0, 0, 0, 0.2);
+}
+
+.download-modal .selection-container
+{
+    height: 60%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.download-modal .selection-container .item .fab
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 85px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    color: rgb(75, 75, 75);
+    transition: color 500ms ease-out;
+}
+
+.download-modal .selection-container .item
+{
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+    width: 32%;
+    height: 100%;
+    cursor: pointer;
+    transition: background-color 500ms ease-out;
+    position: relative;
+}
+
+.download-modal .selection-container .item:hover
+{
+    background-color: #F5F5F5;
+}
+
+.download-modal .selection-container .item .fa-check-circle
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    color: #3B00DD;
+    font-size: 20px;
+    opacity: 0;
+}
+
+.download-modal .selection-container .item.selected
+{
+    background-color: #E8E0FB;
+    border-color: #B5ADC8;
+}
+
+.download-modal .selection-container .item.selected .fa-check-circle
+{
+    opacity: 1;
+}
+
+.download-modal .selection-container .item.selected .fab
+{
+    color: #3B00DD;
+}
+
+.download-modal .info-container
+{
+    height: 40%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    font-family: "Roboto", system-ui, sans-serif;
+}
+
+
+
+.download-modal .info-container .labels .fa-share-alt
+{
+    margin-right: 10px;
+    color: rgb(50, 50, 50);
+}
+
+.download-modal .info-container .meta-labels
+{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 5px;
+    width: 100px;
+}
+
+.download-modal .info-container .ux-text-button
+{
+    color: #3B00DD;
+    padding: 2px 14px;
+}
+
+.download-modal .info-container .ux-text-button .fa-download
+{
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+
+
+
+.stack-container
+{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    /*padding-top: 50px;*/
+}
+#logo
+{
+    width: 34vh;
+    height: auto;
+}
+
+.logo-container
+{
+    margin-bottom: 1%;
+}
+
+.home-main
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 80vh;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.download-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+}
+
+.download-container .ux-text-button
+{
+    margin: 0 5px;
+    color: #763EFF;
+}
+
+
+.download-container .ux-text-button .fas
+{
+    font-size: 20px;
+    margin-right: 10px;
+    /*font-weight: 100;*/
+}
+
+.animation-container
+{
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    left: 0;
+    /* bottom: 0; */
+    margin: auto;
+    width: 20vw;
+    height: 23vw;
+}
+
+#astronaut
+{
+    width: 5vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+    animation-name: astronaut-orbit;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+@keyframes astronaut-orbit
+{
+    from { transform: rotate(0deg) translateX(30px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(30px) rotate(-360deg); }
+}
+
+
+/********************************************
+ *                                          *
+ *                 Features                 *
+ *                                          *
+ ********************************************/
+
+.features-container .header-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.features-container .header-container .main-header
+{
+    font-family: "Chelsea", "Roboto", system-ui, sans-serif;
+    font-size: 48px;
+    color: #763EFF;
+    margin-top: 45px;
+}
+
+.features-container .feature-box
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.features-container .feature-box .header
+{
+    font-family: "Roboto", system-ui, sans-serif;
+    font-weight: 300;
+    color: rgb(70, 70, 70);
+    font-size: 30px;
+}
+
+.features-container .feature-box .description p
+{
+    font-family: "Roboto", system-ui, sans-serif;
+    font-size: 16px;
+    color: rgb(100, 100, 100);
+}
+
+.features-container .feature-box .image-container
+{
+    width: 100%;
+}
+
+.features-container .feature-box .image-container img
+{
+    width: 100%;
+    height: auto;
+}
+
+.features-container .header-container .spaceship-container img
+{
+    width: 200px;
+    height: auto;
+}
+
+
+/********************************************
+ *            Tablets (Portrait)            *
+ ********************************************/
+@media (min-width: 768px) and (max-width: 1024px)
+{
+
+}
+
+/********************************************
+ *            Tablets (Landscape)           *
+ ********************************************/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape)
+{
+}
+
+
+/********************************************
+ *          Mobile Phones (Portrait)        *
+ ********************************************/
+@media (min-width: 320px) and (max-width: 480px)
+{
+
+    .app-bar
+    {
+        padding: 0;
+    }
+    .app-bar .ux-tab-bar
+    {
+        width: 85%;
+    }
+    .app-bar .ux-icon-button
+    {
+        bottom: 5px;
+        left: 5px;
+    }
+
+    .mobile
+    {
+        display: unset;
+    }
+
+
+
+    .animation-container
+    {
+        width: 60vw;
+    }
+    #download-button
+    {
+        display: none;
+    }
+    .overview-container
+    {
+        min-height: 150vh;
+        margin-top: 0;
+    }
+    .overview-container .feature-container,
+    .overview-container .feature-container.left
+    {
+        align-items: center;
+        flex-direction: column-reverse;
+        margin-top: 30px;
+    }
+    .overview-container .feature-container .text-graphics,
+    .overview-container .feature-container.left .text-graphics
+    {
+        text-align: left;
+        width: 100%;
+        height: 37vh;
+        margin: 0;
+        align-items: center;
+    }
+    .overview-container .feature-container.left .text-graphics
+    {
+        background-position-x: 150%;
+        background-position-y: -40%;
+    }
+
+    .overview-container .feature-container .text-graphics
+    {
+        background: unset;
+        height: unset;
+        /*background-size: 75%;*/
+        /*background-position-x: 40px;*/
+        /*display: flex;*/
+        /*align-items: flex-end;*/
+        /*flex-direction: column;*/
+    }
+    .overview-container .feature-container .screen-container img,
+    .overview-container .feature-container.left .screen-container img
+    {
+        width: 100%;
+        height: auto;
+        box-shadow: -5px 9px 10px -1px rgba(0, 0, 0, 0.34);
+        border-radius: 10px;
+    }
+    .overview-container .feature-container .screen-container,
+    .overview-container .feature-container.left .screen-container
+    {
+        width: 90%;
+    }
+    .overview-container .feature-container .text-graphics .feature-labels
+    {
+        width: 90%;
+        margin: 20px 0 0;
+    }
+    .overview-container .feature-container.left .text-graphics .feature-labels .description,
+    .overview-container .feature-container .text-graphics .feature-labels .description
+    {
+        padding-right: 15%;
+        padding-left: 0;
+    }
+
+    .overview-container .feature-container .text-graphics .feature-labels .header
+    {
+        display: none;
+    }
+
+    .ux-tooltip
+    {
+        display: none !important;
+    }
+    .features-container .header-container, .features-container .feature-box
+    {
+        width: 90%;
+    }
+    .features-container .header-container .main-header
+    {
+        font-size: 7vw;
+    }
+    .features-container .feature-box
+    {
+        margin-top: 20vw;
+    }
+    .features-container .feature-box .header
+    {
+        font-size: 1.54em;
+    }
+}
+
+/********************************************
+ *          Mobile Phones (Landscape)       *
+ ********************************************/
+@media (min-width: 481px) and (max-width: 767px)
+{
+}

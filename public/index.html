@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Orbit</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://rawgit.com/TylerSwann/UXKit/master/lib/0.1/src/uxkit.css">
+        <script src="https://rawgit.com/TylerSwann/UXKit/master/lib/0.1/src/uxkit.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <script src="scripts.js"></script>
+    </head>
+    <body>
+        <div class="app-bar">
+            <a
+              href="https://github.com/TylerSwann/Orbit"
+              target="_blank"
+              class="ux-icon-button rippled primary ux-tip"
+              tooltip="View On Github">
+                <i class="fab fa-github"></i>
+            </a>
+            <div class="ux-tab-bar">
+                <a href="index.html" class="ux-tab-item rippled active-tab">
+                    <div>Home</div>
+                </a>
+                <a href="features.html" class="ux-tab-item rippled">
+                    <div>Features</div>
+                </a>
+            </div>
+        </div>
+        <div class="stack-container">
+            <div class="animation-container">
+                <img src="images/astonaught.png" alt="" id="astronaut">
+            </div>
+            <div class="home-main">
+                <div class="logo-container">
+                    <!--<img src="images/logo.png" alt="" id="logo">-->
+                    <img src="images/logo.png" alt="" id="logo">
+                </div>
+                <div class="download-container">
+                    <!--<div class="ux-text-button rippled primary" id="download-button">-->
+                        <!--<i class="fas fa-cloud-download-alt"></i>-->
+                        <!--DOWNLOAD-->
+                    <!--</div>-->
+                    <a
+                      href="features.html"
+                      class="ux-text-button rippled primary"
+                    >LEARN MORE</a>
+                </div>
+            </div>
+            <div class="overview-container">
+                <div class="feature-container">
+                    <div class="text-graphics">
+                        <div class="feature-labels">
+                            <div class="header">Smart Editor</div>
+                            <div class="description">
+                                Orbit analyzes your project and makes accurate code completion predictions
+                                for HTML, CSS, and eventually other languages. Using intelligent inspections,
+                                Orbit will inform you of any possible issues or mistakes along with quick
+                                and easy fix options.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-container">
+                        <img src="images/screenshot11.PNG" alt="">
+                    </div>
+                    <div class="header mobile">Smart Editor</div>
+                </div>
+                <div class="feature-container left">
+                    <div class="text-graphics">
+                        <div class="feature-labels">
+                            <div class="header">Customization</div>
+                            <div class="description">
+                                Customization was built in from the start of Orbit. Custom code themes
+                                can easily be created by editing Orbits' stylesheets allowing you to create
+                                an application and editor designed personally for you.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-container">
+                        <img src="images/colors_screenshot.png" alt="">
+                    </div>
+                    <div class="header mobile">Customization</div>
+                </div>
+            </div>
+        </div>
+        <div class="download-modal">
+            <div class="selection-container">
+                <div class="item">
+                    <i class="far fa-check-circle"></i>
+                    <i class="fab fa-windows"></i>
+                </div>
+                <div class="item">
+                    <i class="far fa-check-circle"></i>
+                    <i class="fab fa-apple"></i>
+                </div>
+                <div class="item">
+                    <i class="far fa-check-circle"></i>
+                    <i class="fab fa-linux"></i>
+                </div>
+            </div>
+            <div class="info-container">
+                <div class="labels">
+                    <div class="os-name">Windows</div>
+                    <div class="os-info">Windows 10 64 bit</div>
+                    <div class="meta-labels">
+                        <i class="fas fa-share-alt"></i>
+                        <div class="version">Version 0.1 Beta</div>
+                    </div>
+                </div>
+                <div class="ux-text-button primary rippled">
+                    <i class="fas fa-download"></i>
+                    Download
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+
+    setTimeout(() => {
+        // load();
+        // buildDownload();
+    }, 100);
+
+    function buildDownload()
+    {
+        const items = document.querySelectorAll(".download-modal .item");
+        const downloadButton = document.getElementById("download-button");
+        const downloadModal = document.querySelector(".download-modal");
+        let modalWidth, modalHeight;
+        let btnIsHover = false;
+        let modalIsHover = false;
+        downloadModal.style.display = "flex";
+        modalWidth = downloadModal.getBoundingClientRect().width;
+        modalHeight = downloadModal.getBoundingClientRect().height;
+        downloadModal.style.display = "none";
+        setTimeout(() => {
+            downloadModal.style.transform = "scale(0)";
+            downloadModal.style.opacity = "0";
+            downloadModal.style.display = "flex";
+        }, 400);
+        setTimeout(() => {
+
+        }, 400);
+        downloadButton.onmouseenter = () => {
+            btnIsHover = true;
+            if (modalIsHover)
+                return;
+            let btnPos = downloadButton.getBoundingClientRect();
+            let x = (btnPos.left + window.scrollX) - (modalWidth - (btnPos.width / 2.0));
+            let y = (btnPos.top + window.scrollY) - (modalHeight + 20.0);
+            x += 50.0;
+            downloadModal.style.top = y + "px";
+            downloadModal.style.left = x + "px";
+            downloadModal.style.transform = "scale(1)";
+            downloadModal.style.opacity = "1";
+        };
+        downloadButton.onmouseleave = () => {
+            btnIsHover = false;
+            setTimeout(() => {
+                if (modalIsHover)
+                    return;
+                downloadModal.style.transform = "scale(0)";
+                downloadModal.style.opacity = "0";
+            }, 500);
+        };
+        downloadModal.onmouseenter =() => modalIsHover = true;
+        downloadModal.onmouseleave = () => {
+            modalIsHover = false;
+            setTimeout(() => {
+                if (btnIsHover)
+                    return;
+                downloadModal.style.transform = "scale(0)";
+                downloadModal.style.opacity = "0";
+            }, 500);
+        };
+
+        const os = getOS();
+        switch (os)
+        {
+            case OS.WIN64:
+                setDownloadTarget(os, items[0]);
+                break;
+            case OS.MACOS:
+                setDownloadTarget(os, items[1]);
+                break;
+            case OS.LINUX:
+                setDownloadTarget(os, items[2]);
+                break;
+
+        }
+        items[0].onclick = () => setDownloadTarget(OS.WIN64, items[0]);
+        items[1].onclick = () => setDownloadTarget(OS.MACOS, items[1]);
+        items[2].onclick = () => setDownloadTarget(OS.LINUX, items[2]);
+    }
+
+    function setDownloadTarget(os, item)
+    {
+        const osName = document.querySelector(".os-name");
+        const osInfo = document.querySelector(".os-info");
+        const items = document.querySelectorAll(".download-modal .item");
+        for (let i = 0; i < items.length; i++) {
+            items[i].classList.remove("selected");
+        }
+        item.classList.add("selected");
+        switch (os)
+        {
+            case OS.WIN64:
+                osName.innerText = "Windows 10";
+                osInfo.innerText = "Windows 10 64 bit minimum";
+                break;
+            case OS.MACOS:
+                osName.innerText = "macOS";
+                osInfo.innerText = "OSX Sierra or higher";
+                break;
+            case OS.LINUX:
+                osName.innerText = "Linux";
+                osInfo.innerText = "Ubuntu 17 or higher";
+                break;
+        }
+    }
+
+    function isInViewport(el)
+    {
+        let top = el.offsetTop;
+        let left = el.offsetLeft;
+        let width = el.offsetWidth;
+        let height = el.offsetHeight;
+
+        while(el.offsetParent)
+        {
+            el = el.offsetParent;
+            top += el.offsetTop;
+            left += el.offsetLeft;
+        }
+        return (
+            top >= window.pageYOffset &&
+            left >= window.pageXOffset &&
+            (top + height) <= (window.pageYOffset + window.innerHeight) &&
+            (left + width) <= (window.pageXOffset + window.innerWidth)
+        );
+    }
+</script>
